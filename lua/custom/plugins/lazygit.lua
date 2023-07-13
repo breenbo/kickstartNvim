@@ -1,4 +1,4 @@
-vim.keymap.set("n", "<leader>gg", "<cmd>Lazy[G]it<cr>")
+vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<cr>", { desc = "Lazy[G]it" })
 --
 return {
   "kdheepak/lazygit.nvim",
