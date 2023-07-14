@@ -47,7 +47,7 @@ require("lazy").setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { "j-hui/fidget.nvim",       tag = "legacy", opts = {} },
+      { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       "folke/neodev.nvim",
@@ -71,7 +71,7 @@ require("lazy").setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { "folke/which-key.nvim",  opts = {} },
+  { "folke/which-key.nvim", opts = {} },
 
   {
     -- Theme
@@ -188,6 +188,8 @@ vim.o.cursorline = true
 vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.keymap.set({ "i" }, "jk", "<Esc>", { silent = true })
 vim.keymap.set({ "i" }, "jj", "<Esc>", { silent = true })
+vim.keymap.set({ "n" }, "<leader>bc", "<cmd>bd<cr>", { desc = "[B]uffer [C]lose" })
+vim.keymap.set({ "n" }, "<leader>ba", "<cmd>%bd|e#<cr>", { desc = "[B]uffer Close [A]ll" })
 
 -- Remap for dealing with word wrap
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })

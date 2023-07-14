@@ -19,7 +19,7 @@ return {
       lualine_z = { "location" },
     },
     winbar = {
-      lualine_a = { "#%t# %m" },
+      lualine_a = { { "%t %m", color = { bg = "none", fg = "white" } } },
     },
     inactive_winbar = {
       lualine_a = { "%f" },

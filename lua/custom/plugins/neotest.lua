@@ -30,6 +30,7 @@ return {
     "antoinemadec/FixCursorHold.nvim",
     "marilari88/neotest-vitest",
   },
+  event = "VeryLazy",
   config = function()
     --
     --
