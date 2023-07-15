@@ -7,7 +7,7 @@ vim.g.maplocalleader = " "
 --
 --
 -- load vim options
-require "lua/custom/vim-options"
+require "custom.vim-options"
 --
 --
 --
@@ -209,15 +209,15 @@ require("nvim-treesitter.configs").setup {
         ["[]"] = "@class.outer",
       },
     },
-    swap = {
-      enable = true,
-      swap_next = {
-        ["<leader>a"] = "@parameter.inner",
-      },
-      swap_previous = {
-        ["<leader>A"] = "@parameter.inner",
-      },
-    },
+    -- swap = {
+    --   enable = true,
+    --   swap_next = {
+    --     ["<leader>a"] = "@parameter.inner",
+    --   },
+    --   swap_previous = {
+    --     ["<leader>A"] = "@parameter.inner",
+    --   },
+    -- },
   },
 }
 
