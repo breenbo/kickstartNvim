@@ -9,6 +9,10 @@ return {
       component_separators = "|",
       section_separators = "",
       globalstatus = true,
+      disabled_filetypes = {
+        statusline = { "alpha" },
+        winbar = { "alpha" },
+      },
     },
     sections = {
       lualine_a = { "mode" },
