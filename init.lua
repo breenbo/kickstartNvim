@@ -140,7 +140,8 @@ vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 vim.keymap.set({ "i" }, "jk", "<Esc>", { silent = true })
 vim.keymap.set({ "i" }, "jj", "<Esc>", { silent = true })
 vim.keymap.set({ "n" }, "<leader>bc", "<cmd>bd<cr>", { desc = "[B]uffer [C]lose" })
-vim.keymap.set({ "n" }, "<leader>ba", "<cmd>%bd|e#<cr>", { desc = "[B]uffer Close [A]ll" })
+vim.keymap.set({ "n" }, "<leader>ba", "<cmd>%bd|e#<cr>", { desc = "[B]uffer Close [A]ll except current" })
+vim.keymap.set({ "n" }, "<leader>bA", "<cmd>%bd<cr>", { desc = "[B]uffer Close [A]ll" })
 
 -- Remap for dealing with word wrap
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -222,8 +223,8 @@ require("nvim-treesitter.configs").setup {
 }
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "gpd", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set("n", "gnd", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
+vim.keymap.set("n", "<leader>lp", vim.diagnostic.goto_prev, { desc = "Go to previous diagnostic message" })
+vim.keymap.set("n", "<leader>ln", vim.diagnostic.goto_next, { desc = "Go to next diagnostic message" })
 vim.keymap.set("n", "<leader>le", vim.diagnostic.open_float, { desc = "Open floating diagnostic message" })
 vim.keymap.set("n", "<leader>lq", vim.diagnostic.setloclist, { desc = "Open diagnostics list" })
 
