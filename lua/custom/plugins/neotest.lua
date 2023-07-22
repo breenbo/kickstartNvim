@@ -48,7 +48,7 @@ return {
     require("neotest").setup {
       adapters = { require "neotest-vitest" },
       --
-      quickfix = { open = true, enabled = true },
+      quickfix = { open = false, enabled = true },
       status = { enabled = true, signs = true, virtual_text = false },
       summary = { open = "botright vsplit | vertical resize 40" },
     }

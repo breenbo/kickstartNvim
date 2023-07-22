@@ -38,7 +38,17 @@ vim.o.termguicolors = true
 --
 -- user settings
 --
-vim.o.scrolloff = 999
+-- vim.o.scrolloff = 999
 vim.o.number = true
 vim.o.cursorline = true
 --
+--
+
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function() vim.highlight.on_yank() end,
+  group = highlight_group,
+  pattern = "*",
+})

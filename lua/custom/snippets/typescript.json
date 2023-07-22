@@ -1,0 +1,63 @@
+{
+  "startup": {
+    "prefix": [
+      "test"
+    ],
+    "body": [
+      "import {describe, it, expect} from 'vitest'",
+      "import {fireEvent, render} from '@testing-library/vue'",
+      "import i18n from '@/localization/i18n'",
+      "import {createTestingPinia} from '@pinia/testing'",
+      "$1",
+      "",
+      "describe('$2', () => {",
+      "it('run dummy test', () => {",
+      "expect(true).toBe(true)",
+      "});",
+      "\t$3",
+      "})"
+    ],
+    "description": "test startup"
+  },
+  "describe": {
+    "prefix": [
+      "describe"
+    ],
+    "body": [
+      "describe('$1', () => {",
+      "\t$2",
+      "})"
+    ],
+    "description": "simple describe"
+  },
+  "mount": {
+    "prefix": [
+      "mount"
+    ],
+    "body": [
+      "it('mount the component', () => {",
+      "render(\t$1, {",
+      "global:{",
+      "plugins:[",
+      "i18n,",
+      "createTestingPinia()",
+      "]",
+      "}",
+      "})",
+      "}",
+      ")"
+    ],
+    "description": "mount component"
+  },
+  "it": {
+    "prefix": [
+      "it"
+    ],
+    "body": [
+      "it('$1', () => {",
+      "\t$2",
+      "})"
+    ],
+    "description": "it test something"
+  }
+}

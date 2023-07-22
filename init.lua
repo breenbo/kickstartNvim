@@ -1,9 +1,5 @@
--- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
---
+-- [[ Basic key mapping ]]
+require "custom.vim-mappings"
 --
 --
 -- load vim options
@@ -55,7 +51,7 @@ require("lazy").setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { "j-hui/fidget.nvim",       tag = "legacy", opts = {} },
+      { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       "folke/neodev.nvim",
@@ -75,11 +71,13 @@ require("lazy").setup({
 
       -- Adds a number of user-friendly snippets
       "rafamadriz/friendly-snippets",
+      "deinsoftware/vscode-vitest-snippets",
+      "deinsoftware/vscode-testing-library-snippets",
     },
   },
 
   -- Useful plugin to show you pending keybinds.
-  { "folke/which-key.nvim",  opts = {} },
+  { "folke/which-key.nvim", opts = {} },
 
   {
     -- Theme
@@ -129,32 +127,6 @@ require("lazy").setup({
 -- [[ Setting options ]]
 -- See `:help vim.o`
 -- NOTE: You can change these options as you wish!
-
---
---
--- [[ Basic Keymaps ]]
-
--- Keymaps for better default experience
--- See `:help vim.keymap.set()`
-vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
-vim.keymap.set({ "i" }, "jk", "<Esc>", { silent = true })
-vim.keymap.set({ "i" }, "jj", "<Esc>", { silent = true })
-vim.keymap.set({ "n" }, "<leader>bc", "<cmd>bd<cr>", { desc = "[B]uffer [C]lose" })
-vim.keymap.set({ "n" }, "<leader>ba", "<cmd>%bd|e#<cr>", { desc = "[B]uffer Close [A]ll except current" })
-vim.keymap.set({ "n" }, "<leader>bA", "<cmd>%bd<cr>", { desc = "[B]uffer Close [A]ll" })
-
--- Remap for dealing with word wrap
-vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
--- [[ Highlight on yank ]]
--- See `:help vim.highlight.on_yank()`
-local highlight_group = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
-vim.api.nvim_create_autocmd("TextYankPost", {
-  callback = function() vim.highlight.on_yank() end,
-  group = highlight_group,
-  pattern = "*",
-})
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
