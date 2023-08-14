@@ -20,9 +20,9 @@ return {
         winbar = true,
         content_layout = "center",
         sources = {
-          { source = "filesystem",       display_name = "File" },
-          { source = "buffers",          display_name = "Bufs" },
-          { source = "git_status",       display_name = "Git" },
+          { source = "filesystem", display_name = "File" },
+          { source = "buffers", display_name = "Bufs" },
+          { source = "git_status", display_name = "Git" },
           { source = "document_symbols", display_name = "Sym" },
         },
       },
@@ -37,5 +37,6 @@ return {
     }
     vim.keymap.set("n", "<leader>nt", "<cmd>Neotree toggle<cr>")
     vim.keymap.set("n", "<leader>nf", "<cmd>Neotree focus<cr>")
+    vim.keymap.set("n", "<leader>nc", "<cmd>Neotree close<cr>")
   end,
 }

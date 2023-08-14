@@ -5,7 +5,7 @@ vim.o.hlsearch = false
 vim.wo.relativenumber = true
 
 -- Enable mouse mode
-vim.o.mouse = "a"
+vim.o.mouse = ""
 
 -- Sync clipboard between OS and Neovim.
 --  Remove this option if you want your OS clipboard to remain independent.
@@ -38,7 +38,7 @@ vim.o.termguicolors = true
 --
 -- user settings
 --
--- vim.o.scrolloff = 999
+vim.o.scrolloff = 5
 vim.o.number = true
 vim.o.cursorline = true
 --

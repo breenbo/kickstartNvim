@@ -345,5 +345,27 @@ cmp.setup {
   },
 }
 
+--
+--
+-- linter
+--
+--
+vim.api.nvim_create_autocmd({ "BufEnter", "TextChanged", "BufWritePost" }, {
+  callback = function()
+    local lint_status, lint = pcall(require, "lint")
+    if lint_status then lint.try_lint() end
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  pattern = { "*.js", "*.ts", "*.vue" },
+  command = "exe ':silent !eslint_d % --fix' | exe ':e!'",
+  -- callback = function()
+  --   vim.cmd { "silent !eslint_d % --fix" }
+  --   vim.cmd { "e!" }
+  -- vim.cmd { "w" }
+  -- end,
+})
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

@@ -16,5 +16,5 @@ vim.keymap.set({ "n" }, "<leader>ba", "<cmd>%bd|e#<cr>", { desc = "[B]uffer Clos
 vim.keymap.set({ "n" }, "<leader>bA", "<cmd>%bd<cr>", { desc = "[B]uffer Close [A]ll" })
 
 -- Remap for dealing with word wrap
-vim.keymap.set("n", "k", "v:count == 0 ? 'gkzz' : 'kzz'", { expr = true, silent = true })
-vim.keymap.set("n", "j", "v:count == 0 ? 'gjzz' : 'jzz'", { expr = true, silent = true })
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
