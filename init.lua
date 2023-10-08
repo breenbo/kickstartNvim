@@ -51,7 +51,7 @@ require("lazy").setup({
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { "j-hui/fidget.nvim", tag = "legacy", opts = {} },
+      { "j-hui/fidget.nvim",       tag = "legacy", opts = {} },
 
       -- Additional lua configuration, makes nvim stuff amazing!
       "folke/neodev.nvim",
@@ -77,7 +77,7 @@ require("lazy").setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { "folke/which-key.nvim", opts = {} },
+  { "folke/which-key.nvim",  opts = {} },
 
   {
     -- Theme
@@ -204,6 +204,8 @@ vim.keymap.set("n", "<leader>lq", vim.diagnostic.setloclist, { desc = "Open diag
 --
 --
 -- [[ Configure LSP ]]
+--
+--
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
   -- NOTE: Remember that lua is a real programming language, and as such it is possible
@@ -267,7 +269,24 @@ local servers = {
   -- clangd = {},
   -- gopls = {},
   -- pyright = {},
-  -- rust_analyzer = {},
+  rust_analyzer = {
+    ["rust-analyzer"] = {
+      imports = {
+        granularity = {
+          group = "module",
+        },
+        prefix = "self",
+      },
+      cargo = {
+        buildScripts = {
+          enable = true,
+        },
+      },
+      procMacro = {
+        enable = true,
+      },
+    },
+  },
   tsserver = {},
   volar = {},
   tailwindcss = {},
@@ -283,7 +302,9 @@ local servers = {
 }
 
 -- Setup neovim lua configuration
-require("neodev").setup()
+require("neodev").setup {
+  library = { plugins = { "nvim-dap-ui", types = true } },
+}
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -306,7 +327,9 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
+--
 -- [[ Configure nvim-cmp ]]
+--
 -- See `:help cmp`
 local cmp = require "cmp"
 local luasnip = require "luasnip"
