@@ -249,6 +249,13 @@ local on_attach = function(_, bufnr)
     function(_) vim.lsp.buf.format() end,
     { desc = "Format current buffer with LSP" }
   )
+
+  -- setup lsp for ufo (folding lib)
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+  }
 end
 
 -- Enable the following language servers
@@ -357,15 +364,10 @@ vim.api.nvim_create_autocmd({ "BufEnter", "TextChanged", "BufWritePost" }, {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
-  pattern = { "*.js", "*.ts", "*.vue" },
-  command = "exe ':silent !eslint_d % --fix' | exe ':e!'",
-  -- callback = function()
-  --   vim.cmd { "silent !eslint_d % --fix" }
-  --   vim.cmd { "e!" }
-  -- vim.cmd { "w" }
-  -- end,
-})
+-- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+--   pattern = { "*.js", "*.ts", "*.vue" },
+--   command = "exe ':silent !eslint_d % --fix' | exe ':e!'",
+-- })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

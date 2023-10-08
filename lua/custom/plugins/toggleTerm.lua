@@ -19,8 +19,7 @@ return {
     function _G.set_term_keymaps()
       local opts = { noremap = true }
       local keymap = vim.api.nvim_buf_set_keymap
-      keymap(0, "t", "<esc>", [[<C-\><C-n>]], opts)
-      keymap(0, "t", "jk", [[<C-\><C-n>]], opts)
+      keymap(0, "t", "uu", [[<C-\><C-n>]], opts)
       keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
       keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
       keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
